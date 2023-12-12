@@ -27,7 +27,7 @@ class Calculator {
     }
 
     private fun startOperation(x: Int, y: Int, operation: AbstractOperation) {
-        println(operation.operate(x, y))
+        println("$x ${operation.getOperator()} $y = ${operation.operate(x, y)}")
     }
 
     private fun getNumber(sequence: Int): Int {
