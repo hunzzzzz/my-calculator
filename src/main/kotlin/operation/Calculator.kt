@@ -4,6 +4,7 @@ import abstract.AbstractOperation
 import resource.Strings
 
 class Calculator {
+    private val numberSequence: Map<Int, String> = mapOf(1 to "첫", 2 to "두")
 
     fun start() {
         var option: String
@@ -12,18 +13,16 @@ class Calculator {
 
         println(Strings.greeting)
         while (true) {
-            println(Strings.chooseOptions)
+            print(Strings.chooseOptions)
 
             option = readln()
-            num1 = getTwoNumbers().first
-            num2 = getTwoNumbers().second
+            if (option == "0") return
 
             when (option) {
-                "0" -> return
-                "1" -> startOperation(num1, num2, AddOperation())
-                "2" -> startOperation(num1, num2, SubtractOperation())
-                "3" -> startOperation(num1, num2, MultiplyOperation())
-                "4" -> startOperation(num1, num2, DivideOperation())
+                "1" -> startOperation(getNumber(1), getNumber(2), AddOperation())
+                "2" -> startOperation(getNumber(1), getNumber(2), SubtractOperation())
+                "3" -> startOperation(getNumber(1), getNumber(2), MultiplyOperation())
+                "4" -> startOperation(getNumber(1), getNumber(2), DivideOperation())
                 else -> println("잘못된 값을 입력하셨습니다. 다시 입력해주세요.")
             }
         }
@@ -33,14 +32,9 @@ class Calculator {
         operation.operate(x, y)
     }
 
-    private fun getTwoNumbers(): Pair<Int, Int> {
-        print(Strings.getFirstNum)
-        val num1 = readln().toInt()
-
-        print(Strings.getSecondNum)
-        val num2 = readln().toInt()
-
-        return Pair(num1, num2)
+    private fun getNumber(sequence: Int): Int {
+        print("${numberSequence[sequence]} " + Strings.getNumber)
+        return readln().toInt()
     }
 }
 
