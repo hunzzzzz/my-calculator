@@ -8,8 +8,6 @@ class Calculator {
 
     fun start() {
         var option: String
-        var num1: Int
-        var num2: Int
 
         println(Strings.greeting)
         while (true) {
@@ -23,7 +21,7 @@ class Calculator {
                 "2" -> startOperation(getNumber(1), getNumber(2), SubtractOperation())
                 "3" -> startOperation(getNumber(1), getNumber(2), MultiplyOperation())
                 "4" -> startOperation(getNumber(1), getNumber(2), DivideOperation())
-                else -> println("잘못된 값을 입력하셨습니다. 다시 입력해주세요.")
+                else -> println(Strings.wrongOption)
             }
         }
     }
