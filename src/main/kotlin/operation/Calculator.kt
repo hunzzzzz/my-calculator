@@ -27,7 +27,7 @@ class Calculator {
     }
 
     private fun startOperation(x: Int, y: Int, operation: AbstractOperation) {
-        operation.operate(x, y)
+        println(operation.operate(x, y))
     }
 
     private fun getNumber(sequence: Int): Int {
@@ -35,4 +35,3 @@ class Calculator {
         return readln().toInt()
     }
 }
-

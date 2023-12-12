@@ -1,9 +1,11 @@
 package operation
 
 import abstract.AbstractOperation
+import resource.Strings
 
 class DivideOperation : AbstractOperation {
     override fun operate(x: Int, y: Int): Double {
-        TODO("Not yet implemented")
+        if (y == 0) throw ArithmeticException(Strings.cannotDivideByZero)
+        return x.toDouble() / y.toDouble()
     }
 }
